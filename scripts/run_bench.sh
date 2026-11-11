@@ -23,7 +23,9 @@ BUILD_ONLY=0; [ "${1:-}" = "--build-only" ] && BUILD_ONLY=1
 VECPASS_ICX=1 source "$ROOT/scripts/env.sh"
 TAG="${VECPASS_TAG:-${SLURM_JOB_ID:-local}-$(date +%Y%m%d-%H%M%S)}"
 OUT="$ROOT/results/raw/$TAG"; mkdir -p "$OUT"
-B="$ROOT/build/bench"; mkdir -p "$B"
+# Per-run build dir: two jobs running at once must not overwrite each
+# other's binaries (happened with jobs 2413617/2413618, see RESULTS.md).
+B="$ROOT/build/bench-$TAG"; mkdir -p "$B"
 SAMPLES="${VECPASS_SAMPLES:-21}"
 SIZES="${VECPASS_SIZES:-1024 65536 16777216}"   # L1, L2, memory (see README)
 KERNELS="${VECPASS_KERNELS:-all}"
@@ -98,7 +100,7 @@ llvm-objdump -d --no-show-raw-insn --disassemble-symbols=k_s212 "$B/kernels_base
 
 # ---------------- 5. correctness on this machine ----------------
 for isa in $ISAS; do
-  VECPASS_EXTRA_CFLAGS="$(echo ${ISA[$isa]} | sed 's/-march=[^ ]*//')" \
+  VECPASS_DIFF_DIR="$B/diff" VECPASS_EXTRA_CFLAGS="$(echo ${ISA[$isa]} | sed 's/-march=[^ ]*//')" \
     "$ROOT/tests/test_diff.sh" "$(echo ${ISA[$isa]} | sed 's/.*-march=\([^ ]*\).*/\1/')" 2>&1 | tee -a "$OUT/correctness.txt"
 done
 

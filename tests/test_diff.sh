@@ -14,7 +14,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 source "$ROOT/scripts/env.sh"
 MARCH="${1:-$VECPASS_MARCH}"
 EXTRA="${VECPASS_EXTRA_CFLAGS:-}"   # e.g. -mprefer-vector-width=512
-OUT="$ROOT/build/diff-$MARCH"; mkdir -p "$OUT"
+# VECPASS_DIFF_DIR lets concurrent jobs use separate dirs.
+OUT="${VECPASS_DIFF_DIR:-$ROOT/build/diff}-$MARCH${VECPASS_EXTRA_CFLAGS:+-wide}"; mkdir -p "$OUT"
 PLUGIN="$ROOT/build/libVecPass.so"
 CF="-O3 -march=$MARCH $EXTRA -gline-tables-only"
 

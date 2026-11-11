@@ -54,8 +54,11 @@ Makefile builds `_default`, `_relaxed`, `_precise`); we analyzed the relaxed one
      `a[i] *= c[i]; b[i] += a[i+1] * d[i];` reads `a[i+1]` after writing
      `a[i]`. In the same iteration those can never be the same address, so
      moving the load up is legal, and then the dependence is "forward".
-     **Neither clang 23 nor icx 2025.0 vectorizes these** (icx reports
-     "assumed ANTI dependence"). In an experiment with hand-reordered
+     **clang 23 leaves them scalar, and icx 2025.0's loop vectorizer rejects
+     them too** (icx reports "assumed ANTI dependence"). Caveat found later
+     (RESULTS.md, asm section): icx still emits 128-bit packed code for some
+     of these kernels, apparently from SLP-style vectorization, which this
+     report-based table does not show. In an experiment with hand-reordered
      source (docs/DESIGN.md §2), icx vectorized all six reordered versions;
      clang vectorized three (s212, s241, s1244) and rejected the other three
      (s1213, s211, s261) with "Forward loop carried data dependence that
@@ -156,5 +159,6 @@ clang: 108 kernel loops vectorized, 44 kernel loops not vectorized (outer `nl` t
 | s123 | 428 | no | no |
 
 icx vectorizes 2 of the 44 loops clang misses: s1161, s315
+(per icx's loop-vectorizer report; see the caveat above about SLP-style code)
 
 clang + vecpass vectorizes 8 of the 44 loops clang misses: s116, s211, s212, s1213, s241, s244, s1244, s261

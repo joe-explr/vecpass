@@ -59,7 +59,9 @@ Evidence (`analysis/experiments/reorder.c`, `run.sh`):
 
 Why this class:
 * It's the biggest *fixable* slice of the biggest reason class.
-* **Neither clang 23 nor icx 2025.0 handles it**, so it isn't a re-implementation.
+* **clang 23 doesn't handle it, and icx 2025.0's loop vectorizer doesn't either**
+  (icx gets 128-bit SLP-style code on some of these kernels; RESULTS.md), so
+  it isn't a re-implementation.
 * The transform is local (one basic block), so its safety argument is short
   and checkable (section 4).
 * Vector legality is still decided by LLVM's own LAA, which reduces the risk
@@ -211,3 +213,7 @@ landing after LoopVectorize.
   that function vectorize.
 * LAA records at most 100 dependences (`-max-dependences`). Loops beyond that
   are skipped.
+* Measured regressions (RESULTS.md): s116 at `-march=sapphirerapids` 0.64–0.69×
+  (LV cost model accepted a slow stride-5 vector loop); some kernels at
+  memory-resident sizes 0.87–0.98×; and with clustered array addresses
+  (all arrays within 128 B mod 4096) s212/s1213/s211 at 256-bit 0.76–0.91×.

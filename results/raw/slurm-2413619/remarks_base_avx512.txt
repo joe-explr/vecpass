@@ -1,0 +1,36 @@
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:25:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   25 |   for (int i = 0; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:34:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   34 |   for (int i = 1; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:42:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   42 |   for (int i = 1; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:50:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   50 |   for (int i = 0; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:58:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   58 |   for (int i = 0; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:67:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   67 |   for (int i = 1; i < n; ++i) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:78:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   78 |   for (int i = 0; i < n - 1; ++i) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:87:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+   87 |   for (int i = 0; i < n - 5; i += 5) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:101:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  101 |   for (int i = 1; i < n - 1; i++) {
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:111:3: remark: vectorized loop (vectorization width: 16, interleaved count: 4) [-Rpass=loop-vectorize]
+  111 |   for (int i = 0; i < n; i++)
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:117:3: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  117 |   for (int i = 1; i < n; i++)
+      |   ^
+/gpfs/home/jbantony/vecpass/kernels/kernels.c:124:3: remark: vectorized loop (vectorization width: 16, interleaved count: 4) [-Rpass=loop-vectorize]
+  124 |   for (int i = 0; i < n; i++)
+      |   ^

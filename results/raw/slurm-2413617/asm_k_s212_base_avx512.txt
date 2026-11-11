@@ -1,0 +1,71 @@
+
+/gpfs/home/jbantony/vecpass/build/bench/kernels_base_avx512_p8.o:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000000000 <k_s212>:
+       0:      	cmpl	$0x2, %edi
+       3:      	jl	0x14f <k_s212+0x14f>
+       9:      	leal	-0x1(%rdi), %ecx
+       c:      	vmovss	(%rip), %xmm0           # 0x14 <k_s212+0x14>
+      14:      	movl	%ecx, %eax
+      16:      	andl	$0x3, %eax
+      19:      	addl	$-0x2, %edi
+      1c:      	cmpl	$0x3, %edi
+      1f:      	jae	0x28 <k_s212+0x28>
+      21:      	xorl	%edx, %edx
+      23:      	jmp	0xf9 <k_s212+0xf9>
+      28:      	andl	$0x7ffffffc, %ecx       # imm = 0x7FFFFFFC
+      2e:      	xorl	%edx, %edx
+      30:      	leaq	(%rip), %rsi            # 0x37 <k_s212+0x37>
+      37:      	leaq	(%rip), %rdi            # 0x3e <k_s212+0x3e>
+      3e:      	leaq	(%rip), %r8             # 0x45 <k_s212+0x45>
+      45:      	leaq	(%rip), %r9             # 0x4c <k_s212+0x4c>
+      4c:      	nopl	(%rax)
+      50:      	vmulss	(%rsi,%rdx,4), %xmm0, %xmm0
+      55:      	vmovss	%xmm0, (%rdi,%rdx,4)
+      5a:      	vmovss	0x4(%rdi,%rdx,4), %xmm0
+      60:      	vmovss	0x8(%rdi,%rdx,4), %xmm1
+      66:      	vmovss	(%r8,%rdx,4), %xmm2
+      6c:      	vmovss	0x4(%r8,%rdx,4), %xmm3
+      73:      	vfmadd213ss	(%r9,%rdx,4), %xmm0, %xmm2 # xmm2 = (xmm0 * xmm2) + mem
+      79:      	vmovss	%xmm2, (%r9,%rdx,4)
+      7f:      	vmulss	0x4(%rsi,%rdx,4), %xmm0, %xmm0
+      85:      	vmovss	%xmm0, 0x4(%rdi,%rdx,4)
+      8b:      	vfmadd213ss	0x4(%r9,%rdx,4), %xmm1, %xmm3 # xmm3 = (xmm1 * xmm3) + mem
+      92:      	vmovss	%xmm3, 0x4(%r9,%rdx,4)
+      99:      	vmulss	0x8(%rsi,%rdx,4), %xmm1, %xmm0
+      9f:      	vmovss	%xmm0, 0x8(%rdi,%rdx,4)
+      a5:      	vmovss	0xc(%rdi,%rdx,4), %xmm0
+      ab:      	vmovss	0x8(%r8,%rdx,4), %xmm1
+      b2:      	vfmadd213ss	0x8(%r9,%rdx,4), %xmm0, %xmm1 # xmm1 = (xmm0 * xmm1) + mem
+      b9:      	vmovss	%xmm1, 0x8(%r9,%rdx,4)
+      c0:      	vmulss	0xc(%rsi,%rdx,4), %xmm0, %xmm0
+      c6:      	vmovss	%xmm0, 0xc(%rdi,%rdx,4)
+      cc:      	vmovss	0x10(%rdi,%rdx,4), %xmm0
+      d2:      	vmovss	0xc(%r8,%rdx,4), %xmm1
+      d9:      	vfmadd213ss	0xc(%r9,%rdx,4), %xmm0, %xmm1 # xmm1 = (xmm0 * xmm1) + mem
+      e0:      	vmovss	%xmm1, 0xc(%r9,%rdx,4)
+      e7:      	addq	$0x4, %rdx
+      eb:      	cmpq	%rdx, %rcx
+      ee:      	jne	0x50 <k_s212+0x50>
+      f4:      	testq	%rax, %rax
+      f7:      	je	0x14f <k_s212+0x14f>
+      f9:      	leaq	(%rip), %rcx            # 0x100 <k_s212+0x100>
+     100:      	leaq	0x4(%rcx,%rdx,4), %rcx
+     105:      	shlq	$0x2, %rdx
+     109:      	xorl	%esi, %esi
+     10b:      	leaq	(%rip), %rdi            # 0x112 <k_s212+0x112>
+     112:      	leaq	(%rip), %r8             # 0x119 <k_s212+0x119>
+     119:      	leaq	(%rip), %r9             # 0x120 <k_s212+0x120>
+     120:      	leaq	(%rdx,%rsi,4), %r10
+     124:      	vmulss	(%rdi,%r10), %xmm0, %xmm0
+     12a:      	vmovss	%xmm0, -0x4(%rcx,%rsi,4)
+     130:      	vmovss	(%rcx,%rsi,4), %xmm0
+     135:      	vmovss	(%r8,%r10), %xmm1
+     13b:      	vfmadd213ss	(%r9,%r10), %xmm0, %xmm1 # xmm1 = (xmm0 * xmm1) + mem
+     141:      	vmovss	%xmm1, (%r9,%r10)
+     147:      	incq	%rsi
+     14a:      	cmpq	%rsi, %rax
+     14d:      	jne	0x120 <k_s212+0x120>
+     14f:      	retq

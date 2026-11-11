@@ -21,8 +21,10 @@ apart, so the load can move above the store. After that, clang vectorizes it.
 From data. I compiled TSVC_2 with clang 23 `-Rpass-analysis` and icx 2025.0
 `-qopt-report` (`analysis/missed.md`). 25 of the 44 missed loops are "backward
 loop-carried dependence", the largest class. Eight of those are not true
-recurrences but order-only. Neither clang nor icx vectorizes those eight,
-and I verified that hand-reordered source does vectorize.
+recurrences but order-only. clang leaves all eight scalar; icx's loop
+vectorizer rejects them too (its asm shows only 128-bit SLP-style code for
+some, and 2 of the kernels stay scalar). I verified that hand-reordered source
+does loop-vectorize.
 
 **4. The obvious candidate was a runtime offset `a[i] = a[i+k]`. Why not that?**
 I checked first. LLVM 23 already handles it: LAA emits a dependence-distance
@@ -124,9 +126,12 @@ operation's operands. Each element is computed by the same operations on the
 same inputs, so bit-exact equality is the right test.
 
 **18. What speedup did you get?**
-See RESULTS.md for the table. Gains are largest for L1/L2-resident data,
-where the scalar loop is compute/latency-bound. At memory size, both versions
-are bandwidth-bound and the gap shrinks.
+On an Intel Xeon Max 9468, single core, median of 21 samples (RESULTS.md):
+with spread-out arrays, 7 of the 8 target kernels ran 2.3–4.6× faster at
+L1/L2 with 256-bit vectors and 2.7–6.0× with AVX-512 (`-mprefer-vector-width=512`).
+At memory size (64 MiB arrays) the effect is 0.87–1.20×: bandwidth-bound,
+and four kernels got slightly slower. Run-to-run spread across three jobs on
+two nodes was at most 5.4%.
 
 **19. AVX2 vs AVX-512: what's different?**
 With `-march=sapphirerapids` LLVM *prefers 256-bit* vectors (ymm, VF 8 for
@@ -143,9 +148,16 @@ branch per loop entry, which matters only for tiny trip counts. vecpass adds
 no runtime check of its own. That's a design advantage over versioning.
 
 **21. Does it ever make code slower?**
-It can reorder a loop that LV then still rejects on cost (s116 at AVX2),
-which gives a different but equivalent scalar order. RESULTS.md reports every
-kernel, including those that didn't improve.
+Yes, measured in three situations. (a) s116 at `-march=sapphirerapids`:
+LV's cost model accepted the reordered stride-5 loop at VF=8, and it ran
+0.64–0.69× as fast (a cost-model misprediction). (b) With the original array
+layout, where all five arrays fell within 128 bytes of each other modulo
+4096, s212/s1213 at 256-bit were 0.76–0.91×. Moving the arrays apart turned
+that into 2.4–4.5×, which points to 4K aliasing. I couldn't confirm it with
+the PMU counter (it read 0), and I say so in RESULTS. (c) At memory size,
+s1213/s211/s1244/fwd1213 lose 2–13%. Lesson: enabling vectorization is
+necessary, not sufficient. Address layout and memory behavior decide the
+final number.
 
 **22. What are the limitations?**
 Innermost single-block loops only. No calls, volatile or atomics. May-alias
@@ -175,6 +187,7 @@ with the plugin took about 4 s.
 (2) Partial reordering plus loop distribution for loops with one true
 recurrence (EXERCISES.md #6). (3) A VPlan-level version that doesn't change
 scalar IR. (4) Run on SPEC/real code to measure how often the pattern
-appears outside TSVC. (5) Compare against icx's statement reordering
-(it vectorized all hand-reordered versions, so it has the codegen but not
-the dependence-driven reordering).
+appears outside TSVC. (5) Understand icx better: its loop vectorizer rejects
+these loops, but it emits 128-bit SLP-style code for some of them and
+loop-vectorizes all hand-reordered versions. (6) A cost check against the
+s116 regression, e.g. skip strided interleaved groups at 256-bit.

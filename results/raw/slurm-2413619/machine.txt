@@ -1,0 +1,24 @@
+date: 2026-11-11T14:37:49-05:00
+host: xm055
+slurm job: 2413619 partition: hbm-short-96core
+CPU(s):                                  96
+Model name:                              Intel(R) Xeon(R) CPU Max 9468
+Thread(s) per core:                      1
+Socket(s):                               2
+CPU(s) scaling MHz:                      35%
+CPU max MHz:                             3500.0000
+CPU min MHz:                             800.0000
+L1d cache:                               4.5 MiB (96 instances)
+L2 cache:                                192 MiB (96 instances)
+L3 cache:                                210 MiB (2 instances)
+NUMA node(s):                            16
+avx512f: yes
+clang: clang version 23.1.5 (https://github.com/conda-forge/clangdev-feedstock 30fd4e93e83162141ae372db80ef9db7baa31094)
+opt:   LLVM version 23.1.5
+icx: Intel(R) oneAPI DPC++/C++ Compiler 2025.0.0 (2025.0.0.20241008)
+module list:
+Currently Loaded Modulefiles:
+ 1) slurm/seawulf3/21.08.8   4) tbb/latest           7) compiler/latest  
+ 2) perf/5.14.0              5) umf/latest          
+ 3) intel/oneAPI/2025.0      6) compiler-rt/latest  
+git: b81c3ccec050127ec1a8a1ad23ba403a636033c8 7 dirty files
