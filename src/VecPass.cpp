@@ -6,12 +6,14 @@
 //   2. LoopReorderer — all the work for ONE loop:
 //        checkShape()     is the loop simple enough for us?
 //        collectDeps()    ask LAA which dependences block vectorization
-//        buildGraph()     "must come before" edges between instructions
+//        buildMemoryAndSSAEdges()  "must come before" edges between
+//                         instructions (collectDeps adds the LAA edges)
 //        topoSort()       find a new order that satisfies every edge
-//        apply()/revert() move the instructions
-//        verifyWithLAA()  re-run LAA on the new body; undo if it didn't help
+//        apply()          move the instructions (also used to undo)
+//        computeLAA() + acceptableAfterLLE()
+//                         re-run LAA on the new body; undo if it didn't help
 //   3. VecPass::run — walks the loops of a function, then (if anything
-//      changed) runs LLVM's LoopLoadElimination on that function.
+//      changed) runs LLVM's LoopLoadElimination + DCE on that function.
 //
 // Safety in one paragraph (details in docs/DESIGN.md): we only change the
 // order of instructions *inside one iteration*. All instructions of iteration
