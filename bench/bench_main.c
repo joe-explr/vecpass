@@ -106,6 +106,10 @@ int main(int argc, char **argv) {
    * can't distort the comparison. */
   _MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
   _MM_SET_DENORMALS_ZERO_MODE(_MM_DENORMALS_ZERO_ON);
+  /* Record the layout: low 12 address bits of each array (4K aliasing). */
+  fprintf(stderr, "layout mod 4096: a=%lu b=%lu c=%lu d=%lu e=%lu\n",
+          (unsigned long)a % 4096, (unsigned long)b % 4096, (unsigned long)c % 4096,
+          (unsigned long)d % 4096, (unsigned long)e % 4096);
   int n = atoi(argv[2]);
   int samples = argc > 3 ? atoi(argv[3]) : 21;
   long fixed_reps = argc > 4 ? atol(argv[4]) : 0;

@@ -14,8 +14,9 @@ d = sys.argv[1]
 rows = list(csv.DictReader(open(os.path.join(d, "bench.csv"))))
 med = {}
 chk = {}
+layouts = list(dict.fromkeys(r.get("layout", "p8") for r in rows))
 for r in rows:
-    key = (r["isa"], r["kernel"], int(r["n"]))
+    key = (r.get("layout", "p8"), r["isa"], r["kernel"], int(r["n"]))
     med[key + (r["compiler"],)] = float(r["median_ns_per_elem"])
     chk[key + (r["compiler"],)] = r["checksum"]
 
@@ -26,8 +27,8 @@ comps = list(dict.fromkeys(r["compiler"] for r in rows))
 label = {1024: "L1-resident", 65536: "L2-resident", 16777216: "memory (> L3)"}
 
 mismatch = []
-for n in sizes:
-    print(f"\n### n = {n} ({label.get(n, '')}), median ns per element (lower is better)\n")
+for lay, n in [(l, n) for l in layouts for n in sizes]:
+    print(f"\n### layout {lay}, n = {n} ({label.get(n, '')}), median ns per element (lower is better)\n")
     hdr = "| kernel |"
     sep = "|---|"
     for isa in isas:
@@ -39,13 +40,13 @@ for n in sizes:
         line = f"| {k} |"
         for isa in isas:
             for c in comps:
-                v = med.get((isa, k, n, c))
+                v = med.get((lay, isa, k, n, c))
                 line += f" {v:.3f} |" if v is not None else " – |"
-            b, v = med.get((isa, k, n, "base")), med.get((isa, k, n, "vecpass"))
+            b, v = med.get((lay, isa, k, n, "base")), med.get((lay, isa, k, n, "vecpass"))
             line += f" **{b / v:.2f}x** |" if b and v else " – |"
-            cb, cv = chk.get((isa, k, n, "base")), chk.get((isa, k, n, "vecpass"))
+            cb, cv = chk.get((lay, isa, k, n, "base")), chk.get((lay, isa, k, n, "vecpass"))
             if cb is not None and cv is not None and cb != cv:
-                mismatch.append((isa, k, n, cb, cv))
+                mismatch.append((lay, isa, k, n, cb, cv))
         print(line)
 
 print("\nChecksum check (clang vs clang+vecpass): " +
@@ -56,18 +57,18 @@ if os.path.exists(pf):
     p = defaultdict(dict)
     for r in csv.DictReader(open(pf)):
         try:
-            p[(r["isa"], r["kernel"])][(r["compiler"], r["event"].split(":")[0])] = float(r["value"])
+            p[(r.get("layout", "p8"), r["isa"], r["kernel"])][(r["compiler"], r["event"].split(":")[0])] = float(r["value"])
         except ValueError:
             pass
-    print("\n### perf stat, n = 65536, fixed work (8 x 2000 calls incl. warm-up), whole process\n")
-    print("| isa | kernel | base cycles | vecpass cycles | base instr | vecpass instr | base IPC | vecpass IPC |")
-    print("|---|---|---:|---:|---:|---:|---:|---:|")
-    for (isa, k), ev in p.items():
+    print("\n### perf stat, n = 65536, fixed work (5 samples + 3 warm-up, 2000 calls each), whole process\n")
+    print("| layout | isa | kernel | base cycles | vecpass cycles | cycles ratio | base instr | vecpass instr | base IPC | vecpass IPC |")
+    print("|---|---|---|---:|---:|---:|---:|---:|---:|---:|")
+    for (lay, isa, k), ev in p.items():
         try:
             bc, vc = ev[("base", "cycles")], ev[("vecpass", "cycles")]
             bi, vi = ev[("base", "instructions")], ev[("vecpass", "instructions")]
         except KeyError:
             continue
-        print(f"| {isa} | {k} | {bc:.3e} | {vc:.3e} | {bi:.3e} | {vi:.3e} | {bi/bc:.2f} | {vi/vc:.2f} |")
+        print(f"| {lay} | {isa} | {k} | {bc:.3e} | {vc:.3e} | {bc/vc:.2f}x | {bi:.3e} | {vi:.3e} | {bi/bc:.2f} | {vi/vc:.2f} |")
     print("\nBoth builds run identical work (fixed reps), so cycle and instruction"
           " counts compare directly; they include init() and harness overhead.")

@@ -12,6 +12,8 @@
 #   ISA:      avx2      = -march=x86-64-v3
 #             spr       = -march=sapphirerapids          (LLVM prefers 256-bit)
 #             avx512    = -march=sapphirerapids -mprefer-vector-width=512
+#   layout:   p8 / p200 = -DARRAY_PAD=8 or 200 (array spacing; p8 puts all
+#             arrays within 128 B of each other mod 4096 -> 4K aliasing)
 #   compiler: base      = clang -O3
 #             vecpass   = clang -O3 -fpass-plugin=libVecPass.so
 #             icx       = icx -O3 -fp-model=precise   (if icx is available)
@@ -52,13 +54,14 @@ declare -A ISA=( [avx2]="-march=x86-64-v3"
                  [avx512]="-march=sapphirerapids -mprefer-vector-width=512" )
 ISAS="${VECPASS_ISAS:-avx2 spr avx512}"
 COMPILERS="base vecpass"; command -v icx >/dev/null && COMPILERS="$COMPILERS icx"
+PADS="${VECPASS_PADS:-8 200}"
 
 # ---------------- 3. build bench variants ----------------
-for isa in $ISAS; do
-  F="-O3 ${ISA[$isa]}"
+for pad in $PADS; do for isa in $ISAS; do
+  F="-O3 ${ISA[$isa]} -DARRAY_PAD=$pad"
   clang $F -c "$ROOT/bench/bench_main.c" -o "$B/main_$isa.o"
   for cc in $COMPILERS; do
-    obj="$B/kernels_${cc}_$isa.o"; exe="$B/bench_${cc}_$isa"
+    obj="$B/kernels_${cc}_${isa}_p$pad.o"; exe="$B/bench_${cc}_${isa}_p$pad"
     case $cc in
       base)    clang $F -gline-tables-only -c "$ROOT/kernels/kernels.c" -o "$obj" \
                  -Rpass=loop-vectorize -Rpass-missed=loop-vectorize 2> "$OUT/remarks_${cc}_$isa.txt"
@@ -71,7 +74,7 @@ for isa in $ISAS; do
                icx $F "$B/main_$isa.o" "$obj" -o "$exe" ;;
     esac
   done
-done
+done; done
 log "built: $(ls $B | grep -c '^bench_') bench binaries"
 
 # ---------------- 4. asm check: vector registers per kernel ----------------
@@ -83,12 +86,12 @@ asm_summary() {  # $1 = object file
     END { for (f in seen) printf "%-10s xmm=%-4d ymm=%-4d zmm=%-4d\n", f, x[f], y[f], z[f] }' | sort
 }
 for isa in $ISAS; do for cc in $COMPILERS; do
-  echo "== $cc $isa" ; asm_summary "$B/kernels_${cc}_$isa.o"
+  echo "== $cc $isa" ; asm_summary "$B/kernels_${cc}_${isa}_p8.o"
 done; done > "$OUT/asm_summary.txt"
 log "asm summary: $OUT/asm_summary.txt"
-llvm-objdump -d --no-show-raw-insn --disassemble-symbols=k_s212 "$B/kernels_vecpass_avx512.o" \
+llvm-objdump -d --no-show-raw-insn --disassemble-symbols=k_s212 "$B/kernels_vecpass_avx512_p8.o" \
   > "$OUT/asm_k_s212_vecpass_avx512.txt" 2>/dev/null || true
-llvm-objdump -d --no-show-raw-insn --disassemble-symbols=k_s212 "$B/kernels_base_avx512.o" \
+llvm-objdump -d --no-show-raw-insn --disassemble-symbols=k_s212 "$B/kernels_base_avx512_p8.o" \
   > "$OUT/asm_k_s212_base_avx512.txt" 2>/dev/null || true
 
 [ $BUILD_ONLY = 1 ] && { log "build-only: done ($OUT)"; exit 0; }
@@ -100,32 +103,37 @@ for isa in $ISAS; do
 done
 
 # ---------------- 6. pinning ----------------
+# Default: CPU 4 if this job may use it, else the first CPU we are allowed.
+ALLOWED=$(taskset -pc $$ | awk '{print $NF}')
 CPU="${VECPASS_CPU:-4}"
+taskset -c "$CPU" true 2>/dev/null || CPU=$(echo "$ALLOWED" | cut -d, -f1 | cut -d- -f1)
 if command -v numactl >/dev/null; then PIN="numactl --physcpubind=$CPU --localalloc"
 else PIN="taskset -c $CPU"; fi
 log "pinning: $PIN"
 
 # ---------------- 7. benchmark ----------------
 CSV="$OUT/bench.csv"
-echo "isa,compiler,kernel,n,reps,median_ns_per_elem,min_ns_per_elem,checksum" > "$CSV"
-for n in $SIZES; do for isa in $ISAS; do for cc in $COMPILERS; do
-  log "bench $cc $isa n=$n"
-  $PIN "$B/bench_${cc}_$isa" "$KERNELS" "$n" "$SAMPLES" | sed "s/^/$isa,$cc,/" >> "$CSV"
-done; done; done
+echo "layout,isa,compiler,kernel,n,reps,median_ns_per_elem,min_ns_per_elem,checksum" > "$CSV"
+for pad in $PADS; do for n in $SIZES; do for isa in $ISAS; do for cc in $COMPILERS; do
+  log "bench p$pad $cc $isa n=$n"
+  $PIN "$B/bench_${cc}_${isa}_p$pad" "$KERNELS" "$n" "$SAMPLES" 2>> "$OUT/layout.txt" \
+    | sed "s/^/p$pad,$isa,$cc,/" >> "$CSV"
+done; done; done; done
+sort -u "$OUT/layout.txt" -o "$OUT/layout.txt"
 
 # ---------------- 8. perf stat (L2 size, avx512) ----------------
 if command -v perf >/dev/null; then
-  PERFCSV="$OUT/perf.csv"; echo "isa,compiler,kernel,event,value" > "$PERFCSV"
-  for isa in avx512 avx2; do
+  PERFCSV="$OUT/perf.csv"; echo "layout,isa,compiler,kernel,event,value" > "$PERFCSV"
+  for pad in $PADS; do for isa in avx512 avx2; do
     for k in s212 s1213 s211 s241 s1244 s261 s244 s116 fwd1213 s000; do
       for cc in $COMPILERS; do
         # fixed work: 5 samples x 2000 calls x 65536 elements, same for all builds
         perf stat -x, -e cycles,instructions -o "$B/perf.tmp" \
-          $PIN "$B/bench_${cc}_$isa" "$k" 65536 5 2000 > /dev/null 2>&1 || continue
-        grep -E "cycles|instructions" "$B/perf.tmp" | awk -F, -v p="$isa,$cc,$k" '{print p","$3","$1}' >> "$PERFCSV"
+          $PIN "$B/bench_${cc}_${isa}_p$pad" "$k" 65536 5 2000 > /dev/null 2>&1 || continue
+        grep -E "cycles|instructions" "$B/perf.tmp" | awk -F, -v p="p$pad,$isa,$cc,$k" '{print p","$3","$1}' >> "$PERFCSV"
       done
     done
-  done
+  done; done
   log "perf: $PERFCSV"
 else
   log "perf not available"

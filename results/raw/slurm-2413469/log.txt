@@ -1,0 +1,32 @@
+[run_bench] built: 9 bench binaries
+[run_bench] asm summary: /gpfs/home/jbantony/vecpass/results/raw/slurm-2413469/asm_summary.txt
+[run_bench] pinning: numactl --physcpubind=4 --localalloc
+[run_bench] bench base avx2 n=1024
+[run_bench] bench vecpass avx2 n=1024
+[run_bench] bench icx avx2 n=1024
+[run_bench] bench base spr n=1024
+[run_bench] bench vecpass spr n=1024
+[run_bench] bench icx spr n=1024
+[run_bench] bench base avx512 n=1024
+[run_bench] bench vecpass avx512 n=1024
+[run_bench] bench icx avx512 n=1024
+[run_bench] bench base avx2 n=65536
+[run_bench] bench vecpass avx2 n=65536
+[run_bench] bench icx avx2 n=65536
+[run_bench] bench base spr n=65536
+[run_bench] bench vecpass spr n=65536
+[run_bench] bench icx spr n=65536
+[run_bench] bench base avx512 n=65536
+[run_bench] bench vecpass avx512 n=65536
+[run_bench] bench icx avx512 n=65536
+[run_bench] bench base avx2 n=16777216
+[run_bench] bench vecpass avx2 n=16777216
+[run_bench] bench icx avx2 n=16777216
+[run_bench] bench base spr n=16777216
+[run_bench] bench vecpass spr n=16777216
+[run_bench] bench icx spr n=16777216
+[run_bench] bench base avx512 n=16777216
+[run_bench] bench vecpass avx512 n=16777216
+[run_bench] bench icx avx512 n=16777216
+[run_bench] perf: /gpfs/home/jbantony/vecpass/results/raw/slurm-2413469/perf.csv
+[run_bench] done: /gpfs/home/jbantony/vecpass/results/raw/slurm-2413469

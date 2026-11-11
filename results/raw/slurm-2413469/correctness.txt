@@ -1,0 +1,9 @@
+PASS: 2668 result lines identical between baseline and vecpass (x86-64-v3 )
+vecpass transformed 17 loops; remarks in /gpfs/home/jbantony/vecpass/build/diff-x86-64-v3/*_vp.remarks
+PASS: may-alias p_s1213 correctly refused
+PASS: 2668 result lines identical between baseline and vecpass (sapphirerapids )
+vecpass transformed 17 loops; remarks in /gpfs/home/jbantony/vecpass/build/diff-sapphirerapids/*_vp.remarks
+PASS: may-alias p_s1213 correctly refused
+PASS: 2668 result lines identical between baseline and vecpass (sapphirerapids  -mprefer-vector-width=512)
+vecpass transformed 17 loops; remarks in /gpfs/home/jbantony/vecpass/build/diff-sapphirerapids/*_vp.remarks
+PASS: may-alias p_s1213 correctly refused

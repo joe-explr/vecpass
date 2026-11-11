@@ -4,7 +4,7 @@
  * Each kernel is the loop body of a TSVC_2 kernel (github.com/UoB-HPC/TSVC_2,
  * same name), operating on global arrays like TSVC does, but with a runtime
  * trip count `n` so one binary can run L1-, L2- and memory-sized problems.
- * Arrays have N_MAX+8 elements so the i+1 / i-1 accesses stay in bounds.
+ * Arrays have N_MAX+ARRAY_PAD (>= 8) elements so i+1 / i+5 stay in bounds.
  *
  * Groups:
  *   TARGET  — loops clang -O3 rejects with a "backward loop carried data
@@ -16,7 +16,7 @@
  * same driver: any output difference is a vecpass bug. */
 #include "kernels.h"
 
-real_t a[N_MAX + 8], b[N_MAX + 8], c[N_MAX + 8], d[N_MAX + 8], e[N_MAX + 8];
+real_t a[ARRAY_LEN], b[ARRAY_LEN], c[ARRAY_LEN], d[ARRAY_LEN], e[ARRAY_LEN];
 
 /* ---------------- TARGET: statement reordering needed ---------------- */
 
