@@ -41,5 +41,6 @@ add_compile_options(-Wall -Wextra -Wno-unused-parameter)
 add_library(VecPass MODULE
   src/Plugin.cpp
   src/LoopPrinter.cpp
+  src/VecPass.cpp
 )
 set_target_properties(VecPass PROPERTIES PREFIX "lib")
