@@ -1,0 +1,1602 @@
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:56:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+   56 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:57:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+   57 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:57:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:77:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+   77 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:78:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+   78 |         for (int i = 1; i < LEN_1D; i += 2) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:78:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:78:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:97:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+   97 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:98:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+   98 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:98:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:98:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:119:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  119 |     for (int nl = 0; nl < 3*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:120:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  120 |         for (int i = LEN_1D - 2; i >= 0; i--) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:120:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:139:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  139 |     for (int nl = 0; nl < iterations*3; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:140:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  140 |         for (int i = LEN_1D - 1; i >= 0; i--) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:140:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:161:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  161 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:162:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  162 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:162:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:181:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  181 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:182:9: remark: loop not reordered: LAA reports a dependence of kind 'Unknown', which reordering cannot fix [-Rpass-missed=vecpass]
+  182 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:183:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Unknown data dependence. Memory location is the same as accessed at tsvc.c:183:20 [-Rpass-analysis=loop-vectorize]
+  183 |             a[i] = a[LEN_1D/2] + b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:182:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  182 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:204:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  204 |     for (int nl = 0; nl < 200*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:205:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  205 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:206:13: remark: loop not reordered: LAA reports a dependence of kind 'Unknown', which reordering cannot fix [-Rpass-missed=vecpass]
+  206 |             for (int j = 0; j < i; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:207:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Unknown data dependence. Memory location is the same as accessed at tsvc.c:207:28 [-Rpass-analysis=loop-vectorize]
+  207 |                 aa[i][j] = aa[j][i] + bb[i][j];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:206:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  206 |             for (int j = 0; j < i; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:228:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  228 |     for (int nl = 0; nl < 1000*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:229:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  229 |         for (int j = 0; j < LEN_2D; j++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:230:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  230 |             for (int i = j+1; i < LEN_2D; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:230:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:250:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  250 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:251:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  251 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:252:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  252 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:252:13: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:252:13: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:273:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  273 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:274:9: remark: reordered loop body (16 of 23 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+  274 |         for (int i = 0; i < LEN_1D - 5; i += 5) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:274:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:274:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:299:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  299 |     for (int nl = 0; nl < 200*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:300:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  300 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:301:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  301 |             for (int j = 0; j <= i - 1; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:301:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:323:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  323 |     for (int nl = 0; nl < 200*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:324:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  324 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:325:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  325 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:325:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:345:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  345 |     for (int nl = 0; nl < 200*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:346:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  346 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:347:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  347 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:347:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:370:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  370 |     for (int nl = 0; nl < 3*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:371:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  371 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:371:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:399:5: remark: loop not reordered: loop has no preheader [-Rpass-missed=vecpass]
+  399 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:399:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:402:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  402 |         for (int i = n1-1; i < LEN_1D; i += n3) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:406:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  406 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:406:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:399:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  399 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:402:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+  402 |         for (int i = n1-1; i < LEN_1D; i += n3) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:426:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  426 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:428:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+  428 |         for (int i = 0; i < (LEN_1D/2); i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:428:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:430:13: remark: loop not vectorized: cannot identify array bounds [-Rpass-analysis=loop-vectorize]
+  430 |             a[j] = b[i] + d[i] * e[i];
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:428:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  428 |         for (int i = 0; i < (LEN_1D/2); i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:455:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  455 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:457:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+  457 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:457:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:484:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  484 |     for (int nl = 0; nl < 100*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:486:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  486 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:487:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  487 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:487:13: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:510:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  510 |     for (int nl = 0; nl < 10*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:512:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  512 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:513:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+  513 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:514:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:514:28 [-Rpass-analysis=loop-vectorize]
+  514 |                 bb[j][i] = bb[j-1][i] + flat_2d_array[k-1] * cc[j][i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:513:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  513 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:538:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  538 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:540:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  540 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:540:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:540:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:566:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  566 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:568:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  568 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:568:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:568:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:592:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  592 |     for (int nl = 0; nl < 5*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:593:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  593 |         for (int i = 0; i < LEN_1D - 1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:593:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:616:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  616 |     for (int nl = 0; nl < 400*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:617:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  617 |         for (int i= 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:617:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:640:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  640 |     for (int nl = 0; nl < 200*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:641:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  641 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:643:13: remark: loop not reordered: LAA reports a dependence of kind 'IndirectUnsafe', which reordering cannot fix [-Rpass-missed=vecpass]
+  643 |             for (int j = i; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:643:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:644:34: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Unsafe indirect dependence. Memory location is the same as accessed at tsvc.c:644:17 [-Rpass-analysis=loop-vectorize]
+  644 |                 flat_2d_array[k] += bb[j][i];
+      |                                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:643:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  643 |             for (int j = i; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:659:5: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  659 |     for (int i = 0; i < LEN_1D-1; i++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:659:5: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:673:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  673 |     for (int nl = 0; nl < 5*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:659:5: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  659 |     for (int i = 0; i < LEN_1D-1; i++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:659:5: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:698:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  698 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:699:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  699 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:699:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:722:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  722 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:723:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+  723 |         for (int i = 0; i < LEN_1D-1; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:730:20: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:727:20 [-Rpass-analysis=loop-vectorize]
+  730 |             c[i+1] = a[i] + d[i] * d[i];
+      |                    ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:723:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  723 |         for (int i = 0; i < LEN_1D-1; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:751:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  751 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:752:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+  752 |         for (int i = 0; i < LEN_1D-1; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:741:8: note: could not determine the original source location for tsvc.c:0:0
+  741 | real_t s1161(struct args_t * func_args)
+      |        ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:741:8: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Unsafe indirect dependence. Memory location is the same as accessed at tsvc.c:759:20 [-Rpass-analysis=loop-vectorize]
+  741 | real_t s1161(struct args_t * func_args)
+      |        ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:741:8: note: could not determine the original source location for tsvc.c:0:0
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:752:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  752 |         for (int i = 0; i < LEN_1D-1; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:783:5: remark: loop not reordered: loop has no preheader [-Rpass-missed=vecpass]
+  783 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:783:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:785:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  785 |             for (int i = 0; i < LEN_1D-1; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:789:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  789 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:789:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:783:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  783 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:785:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+  785 |             for (int i = 0; i < LEN_1D-1; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:810:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  810 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:811:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  811 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:811:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:836:5: remark: loop not reordered: loop has no preheader [-Rpass-missed=vecpass]
+  836 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:836:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:837:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  837 |         for (int i = n1-1; i < LEN_1D; i += n3) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:840:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  840 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:840:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:836:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  836 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:837:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+  837 |         for (int i = n1-1; i < LEN_1D; i += n3) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:858:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  858 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:859:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  859 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:859:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:883:5: remark: loop not reordered: loop has no preheader [-Rpass-missed=vecpass]
+  883 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:883:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:884:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  884 |         for (int i = 0; i < M; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:887:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+  887 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:887:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:883:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  883 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:884:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+  884 |         for (int i = 0; i < M; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:908:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  908 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:909:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  909 |         for (int i = 0; i < LEN_1D-1; i += inc) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:909:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:931:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  931 |     for (int nl = 0; nl < 4*(iterations/LEN_1D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:932:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  932 |         for (int j = 0; j < (LEN_1D/2); j++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:933:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  933 |             for (int i = 0; i < m; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:933:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:961:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  961 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:962:9: remark: reordered loop body (17 of 20 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+  962 |         for (int i = 1; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:962:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:962:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:984:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  984 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:985:9: remark: reordered loop body (4 of 16 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+  985 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:985:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1005:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1005 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1006:9: remark: reordered loop body (13 of 16 instructions moved) so that 2 backward dependence(s) become forward [-Rpass=vecpass]
+ 1006 |         for (int i = 1; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1006:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1006:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1028:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1028 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1029:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1029 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1031:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1031:20 [-Rpass-analysis=loop-vectorize]
+ 1031 |             b[i] = b[i - 1] + a[i] + d[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1029:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1029 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1048:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1048 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1049:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1049 |         for (int i = 4; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1049:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1049:9: remark: vectorized loop (vectorization width: 4, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1070:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1070 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1071:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1071 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1073:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1073:20 [-Rpass-analysis=loop-vectorize]
+ 1073 |             e[i] = e[i - 1] * e[i - 1];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1071:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1071 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1093:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1093 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1094:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1094 |         for (int i = 0; i < LEN_2D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1095:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1095 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1096:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1096:28 [-Rpass-analysis=loop-vectorize]
+ 1096 |                 aa[j][i] = aa[j - 1][i] + bb[j][i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1095:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1095 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1117:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1117 |     for (int nl = 0; nl < 100*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1118:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1118 |         for (int j = 1; j < LEN_2D; j++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1119:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1119 |             for (int i = 1; i <= j; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1120:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1120:28 [-Rpass-analysis=loop-vectorize]
+ 1120 |                 aa[j][i] = aa[j][i-1]*aa[j][i-1]+bb[j][i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1119:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1119 |             for (int i = 1; i <= j; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1139:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1139 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1140:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1140 |         for (int j = 0; j < LEN_2D; j++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1141:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1141 |             for (int i = j; i < LEN_2D; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1141:13: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1141:13: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1163:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1163 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1164:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1164 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1165:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1165 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1168:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1168 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1168:13: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1168:13: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1166:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1166:28 [-Rpass-analysis=loop-vectorize]
+ 1166 |                 aa[j][i] = aa[j-1][i] + cc[j][i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1165:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1165 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1188:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1188 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1189:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1189 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1190:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1190 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1193:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1193 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1193:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1191:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1191:28 [-Rpass-analysis=loop-vectorize]
+ 1191 |                 aa[j][i] = aa[j-1][i] + cc[j][i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1190:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1190 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1214:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1214 |     for (int nl = 0; nl < 200*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1215:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1215 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1217:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1217 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1218:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1218:28 [-Rpass-analysis=loop-vectorize]
+ 1218 |                 aa[j][i] = aa[j-1][i] + bb[j][i] * a[i];
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1217:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1217 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1239:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1239 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1240:9: remark: reordered loop body (4 of 17 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+ 1240 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1240:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1266:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1266 |     for (int nl = 0; nl < iterations/5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1267:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1267 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1268:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1268:20 [-Rpass-analysis=loop-vectorize]
+ 1268 |             a[i] = a[i - 1] + s1 + s2 + b[i] + c[i] + d[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1267:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1267 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1288:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1288 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1289:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1289 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1289:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1289:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1312:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1312 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1313:9: remark: reordered loop body (9 of 19 instructions moved) so that 2 backward dependence(s) become forward [-Rpass=vecpass]
+ 1313 |         for (int i = 0; i < LEN_1D-1; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1313:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1313:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1334:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1334 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1335:9: remark: reordered loop body (4 of 18 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+ 1335 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1335:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1355:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1355 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1356:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1356 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1356:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1379:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1379 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1380:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1380 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1380:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1401:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1401 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1402:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1402 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1402:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1402:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1423:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1423 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1425:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1425 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1425:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1425:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1446:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1446 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1447:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1447 |         for (int i = 0; i < LEN_1D-1; i++){
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1447:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1447:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1471:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1471 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1473:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1473 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1473:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1497:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1497 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1498:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1498 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1498:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1524:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1524 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1526:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1526 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1526:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1549:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1549 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1552:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1552 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1552:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1575:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1575 |     for (int nl = 0; nl < 10*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1576:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1576 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1577:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1577 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1578:22: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1578:38 [-Rpass-analysis=loop-vectorize]
+ 1578 |                 a[j] = (real_t)1.0 - a[j - 1];
+      |                      ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1577:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1577 |             for (int j = 1; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1600:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1600 |     for (int nl = 0; nl < 10*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1601:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1601 |         for (int i = 1; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1602:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1602 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1602:13: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1602:13: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1624:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1624 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1626:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1626 |         for (int i = 0; i < LEN_2D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1626:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1626:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1652:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1652 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1653:9: remark: reordered loop body (8 of 17 instructions moved) so that 1 backward dependence(s) become forward [-Rpass=vecpass]
+ 1653 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1653:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1675:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1675 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1676:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1676 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1676:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1702:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1702 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1703:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1703 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1703:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1727:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1727 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1728:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1728 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1728:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1728:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1752:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1752 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1753:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1753 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1753:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1753:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1779:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1779 |     for (int nl = 0; nl < 10*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1780:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1780 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1782:17: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 1782 |                 for (int j = 1; j < LEN_2D; j++) {
+      |                 ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1783:30: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1783:32 [-Rpass-analysis=loop-vectorize]
+ 1783 |                     aa[j][i] = aa[j-1][i] + bb[j][i] * cc[j][i];
+      |                              ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1782:17: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1782 |                 for (int j = 1; j < LEN_2D; j++) {
+      |                 ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1802:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1802 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1803:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1803 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1804:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1804 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1804:13: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1804:13: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1828:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1828 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1829:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 1829 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1829:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1829:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1853:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1853 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1854:9: remark: loop not reordered: loop body has 5 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1854 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1863:24: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:1858:21 [-Rpass-analysis=loop-vectorize]
+ 1863 |                 b[i+1] = c[i] + d[i] * e[i];
+      |                        ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1854:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1854 |         for (int i = 0; i < LEN_1D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1885:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1885 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1886:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1886 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1886:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1886:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1915:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1915 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1916:9: remark: loop not reordered: loop body has 6 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1916 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1916:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1916:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1947:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1947 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1948:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1948 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1948:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1976:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1976 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1977 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1976:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 1976 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: loop not reordered: loop body has 4 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 1977 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:1977:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2012:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2012 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2013:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2013 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2013:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2036:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2036 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2037:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2037 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2037:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2062:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2062 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2063:9: remark: loop not reordered: LAA reports a dependence of kind 'Unknown', which reordering cannot fix [-Rpass-missed=vecpass]
+ 2063 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2065:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Unknown data dependence. Memory location is the same as accessed at tsvc.c:2064:17 [-Rpass-analysis=loop-vectorize]
+ 2065 |             a[i] = x-(real_t)1.0;
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2063:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2063 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2086:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2086 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2087:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2087 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2087:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2087:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2111:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2111 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2113:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2113 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2113:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2137:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2137 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2140:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2140 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2140:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2140:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2163:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2163 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2164:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2164 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2164:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2186:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2186 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2187:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2187 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2187:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2187:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2208:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2208 |     for (int nl = 0; nl < 100*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2209:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2209 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2210:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2210 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2210:13: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2232:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2232 |     for (int nl = 0; nl < 100*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2233:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2233 |         for (int j = 1; j < LEN_2D; j++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2234:13: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 2234 |             for (int i = 1; i < LEN_2D; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2235:26: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:2235:29 [-Rpass-analysis=loop-vectorize]
+ 2235 |                 aa[j][i] = (aa[j][i-1] + aa[j-1][i])/1.9;
+      |                          ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2234:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2234 |             for (int i = 1; i < LEN_2D; i++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2263:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2263 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2265:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2265 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2265:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2292:5: remark: loop not reordered: instruction with side effects: call [-Rpass-missed=vecpass]
+ 2292 |     for (int nl = 0; nl < 2000*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2302:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 2302 |         dummy(a, b, c, d, e, aa, bb, cc, sum);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2302:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2292:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2292 |     for (int nl = 0; nl < 2000*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2321:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2321 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2323:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2323 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2323:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2344:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2344 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2346:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2346 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2346:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2368:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2368 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2370:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2370 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2370:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2393:5: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2393 |     for (int i = 0; i < LEN_1D; i++)
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2398:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2398 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2401:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2401 |         for (int i = 0; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2393:5: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2393 |     for (int i = 0; i < LEN_1D; i++)
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2401:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 2401 |         for (int i = 0; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2401:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2427:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2427 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2429:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2429 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2429:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2454:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2454 |     for (int nl = 0; nl < 5*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2456:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2456 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2456:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2482:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2482 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2487:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2487 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2487:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2487:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2516:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2516 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2518:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2518 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2518:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2545:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2545 |     for (int nl = 0; nl < 100*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2549:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2549 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2550:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2550 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2550:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2550:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2577:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2577 |     for (int nl = 0; nl < 100*(iterations/(LEN_2D)); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2581:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2581 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2582:13: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2582 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2582:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2582:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2610:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2610 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2612:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2612 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2612:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2636:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2636 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2638 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2661:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2661 |     for (int nl = 0; nl < iterations*4; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2663:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2663 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2663:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2686:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2686 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2687:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 2687 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2688:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:2688:21 [-Rpass-analysis=loop-vectorize]
+ 2688 |             a[i] += a[i-1] * b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2687:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2687 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2708:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2708 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2709:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 2709 |         for (int i = 2; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2710:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:2710:27 [-Rpass-analysis=loop-vectorize]
+ 2710 |             a[i] = a[i] + a[i - 1] * b[i] + a[i - 2] * c[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2709:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2709 |         for (int i = 2; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2730:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2730 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2731:9: remark: loop not reordered: no legal order makes all dependences forward (true recurrence, or accesses that may alias) [-Rpass-missed=vecpass]
+ 2731 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2733:18: remark: loop not vectorized: unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop
+Backward loop carried data dependence. Memory location is the same as accessed at tsvc.c:2732:20 [-Rpass-analysis=loop-vectorize]
+ 2733 |             b[i] = a[i] + c[i] * e[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2731:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2731 |         for (int i = 1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2755:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2755 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2757:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2757 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2757:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2786:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2786 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: loop not reordered: loop body has 2 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2789 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2818:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2818 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2820:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2820 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2820:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2820:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2846:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2846 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2848:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2848 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2848:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2848:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2874:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2874 |     for (int nl = 0; nl < 10*(iterations/LEN_2D); nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2876:9: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2876 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2877:13: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2877 |             for (int j = 0; j < LEN_2D; j++) {
+      |             ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2877:13: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2877:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2903:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2903 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2904:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2904 |         for (int i = 0; i < LEN_1D; i += 5) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2904:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2904:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2926:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2926 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2930:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2930 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2930:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2955:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2955 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2957:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2957 |         for (int i = 0; i < LEN_1D; i += 5) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2957:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2984:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2984 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2985:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2985 |         for (int i = 0; i < LEN_1D; i += 5) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2985:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2985:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3019:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3019 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3021:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3021 |         for (int i = 0; i < LEN_1D - 1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3021:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3042:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3042 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3043:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3043 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3043:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3067:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3067 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3068:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3068 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3068:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3093:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3093 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3094:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3094 |         for (int i = 0; i < LEN_1D - 1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3094:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3120:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3120 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3121:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3121 |         for (int i = 0; i < LEN_1D - 1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3121:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3146:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3146 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3147:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3147 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3147:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3168:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3168 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3169:9: remark: loop not reordered: loop body has 6 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 3169 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3169:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3169:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3196:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3196 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3197:9: remark: loop not reordered: loop body has 5 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 3197 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3197:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3197:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3236:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3236 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3237:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 3237 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3237:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3269:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3269 |     for (int nl = 0; nl < iterations/5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3270:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3270 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3270:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3270:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3291:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3291 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3292:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3292 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3292:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3314:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3314 |     for (int nl = 0; nl < iterations*2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3316:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3316 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3316:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3344:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3344 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3345:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3345 |         for (int i = 0; i < m; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3345:9: remark: vectorized loop (vectorization width: 8, interleaved count: 2) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3368:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3368 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3369:9: remark: loop not reordered: loop body has 2 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 3369 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3369:9: remark: loop not vectorized: Early exit loop with store but no supported condition load [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3369:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3394:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3394 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3395:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3395 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3395:9: remark: loop not vectorized: Cannot vectorize uncountable loop [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3395:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3421:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3421 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3422:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3422 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3422:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3422:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3449:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3449 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3450:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3450 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3450:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3450:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3475:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3475 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3476:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3476 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3476:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3476:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3504:5: remark: loop not reordered: loop has no preheader [-Rpass-missed=vecpass]
+ 3504 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3504:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3505:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3505 |         for (int i = n1-1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3510:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3510 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3510:9: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3504:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3504 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3505:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+ 3505 |         for (int i = n1-1; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3505:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3533:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3533 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3535:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3535 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3535:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3565:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3565 |     for (int nl = 0; nl < 100*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3567:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3567 |         for (int i = 0; i < LEN_2D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3567:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3589:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3589 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3590:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3590 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3590:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3590:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3615:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3615 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3616:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3616 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3616:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3637:5: remark: loop not reordered: instruction with side effects: call [-Rpass-missed=vecpass]
+ 3637 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3639:18: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3639 |             a[i] = b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3641:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3641 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3639:18: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3639 |             a[i] = b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3637:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3637 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3663:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3663 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3664:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3664 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3664:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3689:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3689 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3690:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3690 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3690:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3711:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3711 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3712:9: remark: loop not reordered: loop body has 3 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 3712 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3712:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3735:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3735 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3736:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3736 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3736:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3757:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3757 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3758:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3758 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3758:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3779:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3779 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3780:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3780 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3780:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3804:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3804 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3805:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3805 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3805:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3826:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3826 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3827:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3827 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3827:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3848:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3848 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3849:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3849 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3849:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3871:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3871 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3873:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3873 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3873:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3895:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3895 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3897:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3897 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3897:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3920:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3920 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3921:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3921 |         for (int i = 0; i < LEN_2D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3921:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3921:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:56:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+   56 |     for (int nl = 0; nl < 2*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:57:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+   57 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:139:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+  139 |     for (int nl = 0; nl < iterations*3; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:140:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+  140 |         for (int i = LEN_1D - 1; i >= 0; i--) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2163:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2163 |     for (int nl = 0; nl < 4*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2164:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2164 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2263:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2263 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2265:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2265 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2321:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2321 |     for (int nl = 0; nl < 10*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2323:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2323 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2344:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2344 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2346:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2346 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2368:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2368 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2370:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2370 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2427:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2427 |     for (int nl = 0; nl < iterations*5; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2429:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2429 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2454:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2454 |     for (int nl = 0; nl < 5*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2456:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2456 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2610:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2610 |     for (int nl = 0; nl < iterations/2; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2612:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2612 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2636:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2636 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2638 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2661:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2661 |     for (int nl = 0; nl < iterations*4; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2663:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2663 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2755:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2755 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2757:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2757 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2786:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2786 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: loop not reordered: loop body has 2 basic blocks (only 1 supported) [-Rpass-missed=vecpass]
+ 2789 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2926:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 2926 |     for (int nl = 0; nl < 8*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2930:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 2930 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3533:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3533 |     for (int nl = 0; nl < iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3535:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3535 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3565:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3565 |     for (int nl = 0; nl < 100*iterations; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3567:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3567 |         for (int i = 0; i < LEN_2D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3637:5: remark: loop not reordered: instruction with side effects: call [-Rpass-missed=vecpass]
+ 3637 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3871:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3871 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3873:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3873 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3895:5: remark: loop not reordered: not an innermost loop [-Rpass-missed=vecpass]
+ 3895 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3897:9: remark: loop not reordered: LAA already considers memory accesses vectorizable [-Rpass-missed=vecpass]
+ 3897 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:57:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+   57 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:140:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+  140 |         for (int i = LEN_1D - 1; i >= 0; i--) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2164:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2164 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2265:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2265 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2323:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2323 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2346:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2346 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2370:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2370 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2429:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2429 |         for (int i = 1; i < LEN_1D; ++i) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2456:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2456 |         for (int i = 0; i < LEN_1D/2; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2612:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2612 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+ 2638 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2638:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2663:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2663 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2757:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2757 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-analysis=loop-vectorize]
+ 2789 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2789:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:2930:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2930 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3535:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3535 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3567:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3567 |         for (int i = 0; i < LEN_2D-1; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3639:18: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3639 |             a[i] = b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3641:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3641 |         dummy(a, b, c, d, e, aa, bb, cc, 0.);
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3639:18: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+ 3639 |             a[i] = b[i];
+      |                  ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3637:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3637 |     for (int nl = 0; nl < iterations*10; nl++) {
+      |     ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3873:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3873 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^
+/gpfs/home/jbantony/vecpass/third_party/TSVC_2/src/tsvc.c:3897:9: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3897 |         for (int i = 0; i < LEN_1D; i++) {
+      |         ^

@@ -1,0 +1,1 @@
+Intel(R) oneAPI DPC++/C++ Compiler 2025.0.0 (2025.0.0.20241008)

@@ -2,3 +2,4 @@ build/
 *.o
 *.ll.tmp
 results/raw/
+third_party/
