@@ -155,7 +155,10 @@ layout, where all five arrays fell within 128 bytes of each other modulo
 4096, s212/s1213 at 256-bit were 0.76–0.91×. Moving the arrays apart turned
 that into 2.4–4.5×, which points to 4K aliasing. I couldn't confirm it with
 the PMU counter (it read 0), and I say so in RESULTS. (c) At memory size,
-s1213/s211/s1244/fwd1213 lose 2–13%. Lesson: enabling vectorization is
+s1213/s211/s1244/fwd1213 lose 2–13%. Exactly those four have a write-only
+output array. A controlled pair (same kernel, `d[i] =` vs `d[i] +=`) gave
+0.98× vs 1.20× at 16M elements, but I haven't identified the hardware
+mechanism. Lesson: enabling vectorization is
 necessary, not sufficient. Address layout and memory behavior decide the
 final number.
 

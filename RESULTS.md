@@ -163,8 +163,25 @@ L2 the gap is smaller.
 **What did NOT improve, or got worse:**
 * **Memory-resident data (n = 16M):** gains shrink to 1.13–1.20× for
   s212/s241/s261/s244 (p200), and s1213, s211, s1244 and fwd1213 are **0.87–0.98×
-  (slower)** in layout p200. Both versions are memory-bound. I did not
-  investigate why the vector versions of those four lose 2–13% there.
+  (slower)** in layout p200. Follow-up experiments (after the main runs):
+  * **Size sweep** (`results/experiments/sweep/`, job 2413677, xm040, p200):
+    every target kernel gains 1.29–1.64× from 256K to 1M elements per array.
+    Past about 2M–4M elements the kernels split. s212, s241 and s261 stay at
+    1.17–1.31×. s1213, s211, s1244 and fwd1213 fall to 0.91–1.02× (AVX-512) /
+    0.95–1.09× (AVX2). perf `cache-misses` at 16M are the same for both
+    builds (1.39e8, including initialization), so vecpass does not add memory
+    traffic.
+  * **Pattern:** the four kernels that lose are exactly the four with a
+    **write-only output array** (s1213: `b` after LLE; s211: `a`; s1244:
+    `d`; fwd1213: `b`). The four that gain only store to arrays they also read.
+  * **Controlled check** (`results/experiments/writeonly/`, xm076, single
+    run): the same s1244-shaped kernel at n = 16M, AVX-512, gives **0.98×**
+    with `d[i] = ...` and **1.20×** with `d[i] += ...`. At n = 65536 both gain
+    (3.46× / 4.18×).
+  * Not resolved: the hardware mechanism (how full-vector stores to a
+    write-only stream interact with read-for-ownership and prefetching). I
+    have not measured it. Non-temporal stores for write-only streams would be
+    the obvious next experiment.
 * **The p8 layout at 256-bit widths:** s212 and s1213 are **0.76×–0.91×
   (slower)** at L1/L2 with AVX2 and `spr`; s211 is 0.83–0.88× at AVX2 (0.99–1.00× at `spr`). The same kernels gain 1.34–1.79× with
   AVX-512, and 2.3–4.6× once the arrays are moved apart (p200). The only change

@@ -133,6 +133,9 @@ and writes `results/raw/<tag>/`.
 * True recurrences (s321 and most of the 25 TSVC backward-dependence loops)
   are out of scope.
 * Speedups depend strongly on array placement (4K aliasing; see RESULTS.md).
+* At memory-resident sizes, kernels with a write-only output array run
+  0.91–0.99× (slower); a controlled pair confirms the pattern, but the mechanism
+  is not identified (RESULTS.md).
 
 ## Future work
 
@@ -143,6 +146,8 @@ and writes `results/raw/<tag>/`.
   real recurrence (docs/EXERCISES.md #6).
 * Multi-block bodies after if-conversion, with a speculation-safety argument.
 * Measure prevalence beyond TSVC (SPEC CPU, llvm-test-suite).
+* Try non-temporal stores for write-only streams at large trip counts, and
+  find the cause of the memory-size slowdown.
 
 ## Resume bullet drafts (measured numbers only)
 
