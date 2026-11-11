@@ -1,0 +1,7 @@
+; tests/c/loops.check — FileCheck expectations for vecpass-print on loops.c
+CHECK: function 'f_const': loop depth=1 header=for.body tripcount=1000
+CHECK: function 'f_n': loop depth=1 header=for.body tripcount=({{.*}}%n{{.*}}) + 1
+CHECK: function 'f_nest': loop depth=1 {{.*}}%n
+CHECK: function 'f_nest': loop depth=2 {{.*}}%m
+CHECK: function 'f_while': loop depth=1 header=while.cond tripcount=unknown
+CHECK: function 'f_none': no loops
